@@ -87,6 +87,9 @@ export class Select2Component extends CustomInputComponent
         const { id, text, selected } = ev['params']['data'];
         this.onSelect.emit({ id, text, selected });
       });
+      this.select2.on('select2:close', (ev: any) => {
+        ev.target.focus();
+      });
     }
     this.setSelect2Value();
   }
