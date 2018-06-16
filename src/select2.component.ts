@@ -32,6 +32,7 @@ export class Select2Component extends CustomInputComponent
   @Input() options: any[] = []; // object: {id, text} or array: []
   @Input() disabled: boolean = false;
   @Output() onSelect = new EventEmitter<any>();
+  @Output() selectElement = new EventEmitter<any>()
 
   /**
    * Added options that control how the visuals of select2 works
@@ -39,7 +40,6 @@ export class Select2Component extends CustomInputComponent
   @Input() settings: object;
 
   select2: any;
-  @Output() selectElement: any;
   private el: ElementRef;
 
   constructor(el: ElementRef) {
@@ -47,7 +47,7 @@ export class Select2Component extends CustomInputComponent
       this.setSelect2Value();
     });
     this.el = el;
-    this.selectElement = this.select2;
+    this.selectElement.emit(this.select2);
   }
 
   ngAfterViewInit() {
