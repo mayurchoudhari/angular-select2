@@ -47,7 +47,6 @@ export class Select2Component extends CustomInputComponent
       this.setSelect2Value();
     });
     this.el = el;
-    this.selectElement.emit(this.select2);
   }
 
   ngAfterViewInit() {
@@ -61,6 +60,7 @@ export class Select2Component extends CustomInputComponent
       this.select2.val([this.value]);
     }
     this.select2.trigger('change');
+    this.selectElement.emit(this.select2);
   }
 
   ngOnChanges(changes: SimpleChanges) {
