@@ -39,6 +39,7 @@ export class Select2Component extends CustomInputComponent
   @Input() settings: object;
 
   select2: any;
+  @Output() selectElement: any;
   private el: ElementRef;
 
   constructor(el: ElementRef) {
@@ -46,6 +47,7 @@ export class Select2Component extends CustomInputComponent
       this.setSelect2Value();
     });
     this.el = el;
+    this.selectElement = this.select2;
   }
 
   ngAfterViewInit() {
