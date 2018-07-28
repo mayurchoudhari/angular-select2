@@ -85,7 +85,7 @@ export class Select2Component extends CustomInputComponent
         .select2(settings);
       this.select2.on('select2:select select2:unselect', (ev: any) => {
         const selectValue = this.select2.val();
-        this.value = selectValue;
+        try { this.value = selectValue; } catch (e) { }
         const { id, text, selected } = ev['params']['data'];
         this.onSelect.emit({ id, text, selected });
       });
